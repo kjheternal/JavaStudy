@@ -1,5 +1,7 @@
 package com.eternal.c.kiosk.catcafe.product;
 
+import com.eternal.c.kiosk.util.Common;
+
 public class Dessert extends Product {
 
 	public Dessert(String name, int price, int kcal) {
@@ -10,6 +12,9 @@ public class Dessert extends Product {
 		super(name);
 	}
 	
-	public String typeDes;
-
+	@Override
+	public void info() {
+		super.info();
+		Common.wn();
+	}
 }

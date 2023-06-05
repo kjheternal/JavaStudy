@@ -3,7 +3,6 @@ package com.eternal.c.kiosk.catcafe;
 import java.util.ArrayList;
 
 import java.util.HashMap;
-import java.util.Scanner;
 
 import com.eternal.c.kiosk.catcafe.product.Food;
 import com.eternal.c.kiosk.catcafe.product.Product;
@@ -21,14 +20,10 @@ public class KioskObj {
 	
 	public static HashMap<String, Integer> frequencyMap = new HashMap<>(); // 중복 빈도수 체크 배열 ( 명함철 ) 생성
 	
-	// 입력 클래스 생성
-	public static Scanner sc = new Scanner(System.in);
-	public static String cmd;
-	
 	//// 상품목록 처리 ////
 	public static void productLoad() {
-		products.add(new Drink("아메리카노",1000,350));
-		products.add(new Drink("오렌지쥬스",2000,700));
+		products.add(new Drink("아메리카노",1000,350,550));
+		products.add(new Drink("오렌지쥬스",2000,700,1200));
 		products.add(new Dessert("케이크"));
 		products.add(new Food("토스트",1090));
 	}

@@ -3,7 +3,9 @@ package com.eternal.c.kiosk.catcafe;
 import com.eternal.c.kiosk.catcafe.product.Dessert;
 import com.eternal.c.kiosk.catcafe.product.Food;
 import com.eternal.c.kiosk.catcafe.product.Product;
+
 import com.eternal.c.kiosk.util.Common;
+import com.eternal.c.kiosk.util.ProcKiosk;
 
 public class ProcMenuDessert {
 	public void Run() {
@@ -19,25 +21,27 @@ public class ProcMenuDessert {
 			Common.wn("3. 고양이 카페 디저트 상품 정보 보기");
 			Common.wn("========== x. 이전 메뉴 =========");
 			
-			KioskObj.cmd = KioskObj.sc.next();
+			Common.cmd = Common.sc.next();
 			
-			switch(KioskObj.cmd) {
+			switch(Common.cmd) {
 				case "1":
 					KioskObj.products.get(2).price = 10000; // 케이크 가격을 생성자 함수에서 생략했으므로 여기서 처리
 					
 					Common.wn("수량을 입력해주세요! (1개 이상)");
 					
-					KioskObj.cmd = KioskObj.sc.next();
+					Common.cmd = Common.sc.next();
+					int value = Integer.parseInt(Common.cmd);
 					
-					Common.Buy(new Order(KioskObj.products.get(2)), KioskObj.cmd); // 오더 추가
+					ProcKiosk.Buy(new Order(KioskObj.products.get(2)), value); // 오더 추가
 					
 					break;
 				case "2":
 					Common.wn("수량을 입력해주세요! (1개 이상)");
 					
-					KioskObj.cmd = KioskObj.sc.next();
+					Common.cmd = Common.sc.next();
+					int value2 = Integer.parseInt(Common.cmd);
 					
-					Common.Buy(new Order(KioskObj.products.get(3)), KioskObj.cmd);
+					ProcKiosk.Buy(new Order(KioskObj.products.get(3)), value2);
 					
 					break;
 				case "3":

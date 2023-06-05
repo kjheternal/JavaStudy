@@ -6,6 +6,7 @@ import com.eternal.c.kiosk.catcafe.product.Product;
 //import java.util.Scanner;
 
 import com.eternal.c.kiosk.util.Common;
+import com.eternal.c.kiosk.util.ProcKiosk;
 
 public class ProcMenuDrink {
 	public void Run() {
@@ -22,11 +23,11 @@ public class ProcMenuDrink {
 			Common.wn("3. 고양이 카페 음료 상품 정보 보기");
 			Common.wn("========== x. 이전 메뉴 =========");
 			
-			KioskObj.cmd = KioskObj.sc.next();
+			Common.cmd = Common.sc.next();
 			
 //			Kiosk.cmd = zz.next();
 			
-			switch(KioskObj.cmd) {
+			switch(Common.cmd) {
 				case "1":
 					ProcMenuOptionHotCold.run();
 					
@@ -34,9 +35,10 @@ public class ProcMenuDrink {
 				case "2":
 					Common.wn("수량을 입력해주세요! (1개 이상)");
 					
-					KioskObj.cmd = KioskObj.sc.next();
+					Common.cmd = Common.sc.next();
+					int value = Integer.parseInt(Common.cmd);
 					
-					Common.Buy(new Order(KioskObj.products.get(1)), KioskObj.cmd);
+					ProcKiosk.Buy(new Order(KioskObj.products.get(1)), value); // 오더 추가
 					
 					break;
 				case "3":

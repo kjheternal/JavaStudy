@@ -1,12 +1,29 @@
 package com.eternal.c.kiosk.util;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.DecimalFormat;
-
-import com.eternal.c.kiosk.catcafe.KioskObj;
-import com.eternal.c.kiosk.catcafe.Order;
-import com.eternal.c.kiosk.catcafe.product.Product;
+import java.util.Scanner;
 
 public class Common {
+	// 입력 클래스 생성
+	public static Scanner sc = new Scanner(System.in);
+	public static String cmd;
+	
+	// 입력 클래스 ( 공백 인식이 가능한 입력 클래스 )
+	static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	
+	static public String rl(String comment) {
+		Common.w(comment+":");
+		try {
+			return reader.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public static void w(String s) {
 		System.out.print(s);
 	}
@@ -27,52 +44,5 @@ public class Common {
 	    // 3자리마다 콤마를 찍어주는 형식화
 	    DecimalFormat decimalFormat = new DecimalFormat("#,###");
 	    return decimalFormat.format(number);
-	}
-	
-	public static int getPrice(String product) {
-	    for (Product p : KioskObj.products) {
-	        if (p.name.equals(product)) {
-	            return p.price;
-	        }
-	    }
-	    return 0; // 상품의 가격을 찾지 못하면 0으로 출력
-	}
-	
-	public static void amount(Order s, int n) {
-		for (int i=1; i<=n; i++) {
-			if ( s.optionHotCold > 0 && s.optionHotCold <= 2 ) {
-				KioskObj.shoppingList.add(new Order(s.selectedProduct, s.optionHotCold));
-			} else {
-				KioskObj.shoppingList.add(new Order(s.selectedProduct));
-			}
-		}
-	}
-	
-	public static void Buy(Order s, String n) {
-		try {
-			int value = Integer.parseInt(n);
-			
-			if ( value > 0 ) {
-				Common.amount(s, value);
-				
-				if ( s.optionHotCold > 0 && s.optionHotCold <= 2 ) {
-					String str = null;
-					
-					if ( s.optionHotCold == 1 ) {
-						str = "HOT";
-					} else if ( s.optionHotCold == 2 ) {
-						str = "ICE";
-					}
-					
-					Common.wn(s.selectedProduct.name + " " + str + " " + value + " 개 가 추가되었습니다. 가격: " + s.selectedProduct.price * value);
-				} else {
-					Common.wn(s.selectedProduct.name + " " + value + " 개 가 추가되었습니다. 가격: " + s.selectedProduct.price * value);
-				}
-			} else {
-				Common.wn("반드시 1개 이상 입력해주세요!");
-			}
-        } catch (NumberFormatException e) {
-        	Common.wn("잘못된 값입니다! 숫자를 입력해주세요.");
-        }
 	}
 }
