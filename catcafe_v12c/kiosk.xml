@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>console</headerType>
+  <jar>D:\11_for_sts3\KioskCatCafe\kiosk.jar</jar>
+  <outfile>D:\Stuff\_0 KJAVA 취업지원 관련\Stuff\자바 관련\_내가만든거\catcafe_v12c\kiosk.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl></downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon></icon>
+  <classPath>
+    <mainClass>com.eternal.c.kiosk.catcafe.Main</mainClass>
+    <cp>.</cp>
+  </classPath>
+  <jre>
+    <path>C:\Users\awd78\Documents\JDK\jdk-11.0.19\bin</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion>11</minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+</launch4jConfig>
