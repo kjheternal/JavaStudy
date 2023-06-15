@@ -1,7 +1,7 @@
 package com.peisia.mysqltest;
 
+import com.peisia.mysqlclient.Display;
 import com.peisia.mysqlutil.Database;
-import com.peisia.mysqlutil.Display;
 
 public class ProcBoard {
 	void run() {

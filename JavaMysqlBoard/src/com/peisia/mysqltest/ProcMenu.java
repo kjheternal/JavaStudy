@@ -1,7 +1,7 @@
 package com.peisia.mysqltest;
 
+import com.peisia.mysqlclient.Display;
 import com.peisia.mysqlutil.Common;
-import com.peisia.mysqlutil.Display;
 import com.peisia.mysqlutil.Input;
 
 public class ProcMenu {
@@ -25,6 +25,9 @@ public class ProcMenu {
 				break;
 			case "5":	//수정
 				ProcMenuUpdate.run();
+				break;
+			case "6":	//글리스트 - 검색
+				ProcMenuList.search();
 				break;
 			case "0":	//관리자 기능 ( 구현 중 )
 //				ProcMenuAdmin.run();
